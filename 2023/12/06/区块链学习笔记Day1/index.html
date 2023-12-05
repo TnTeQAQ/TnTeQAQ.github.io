@@ -13,33 +13,34 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://tnteqaq.github.io/2023/12/02/搭建jupyter服务器/"/>
+    <link rel="canonical" href="https://tnteqaq.github.io/2023/12/06/区块链学习笔记day1/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="随时随地访问jupyter，畅享加班生活。">
+        <meta name="description" content="学区块链做的笔记，大部分内容来自《精通以太坊》。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="搭建jupyter服务器">
-<meta property="og:url" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
+<meta property="og:title" content="区块链学习笔记Day1">
+<meta property="og:url" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/index.html">
 <meta property="og:site_name" content="TnTeQAQ的blog">
-<meta property="og:description" content="随时随地访问jupyter，畅享加班生活。">
+<meta property="og:description" content="学区块链做的笔记，大部分内容来自《精通以太坊》。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202011936041.png">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202012608960.png">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202012818266.png">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202013114450.png">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202013403333.png">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202030750685.png">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202031241763.png">
-<meta property="og:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202032141589.png">
-<meta property="article:published_time" content="2023-12-01T20:20:11.121Z">
-<meta property="article:modified_time" content="2023-12-01T20:13:26.183Z">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206005050471.png">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206005300957.png">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013025151.png">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013438736.png">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013640079.png">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013748675.png">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206022030253.png">
+<meta property="og:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206022102460.png">
+<meta property="article:published_time" content="2023-12-05T18:27:01.073Z">
+<meta property="article:modified_time" content="2023-12-05T18:40:48.714Z">
 <meta property="article:author" content="TnTeQAQ">
-<meta property="article:tag" content="小寄巧">
-<meta property="article:tag" content="真这么干你就等死吧">
+<meta property="article:tag" content="区块链">
+<meta property="article:tag" content="以太坊">
+<meta property="article:tag" content="智能合约">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://tnteqaq.github.io/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202011936041.png">
+<meta name="twitter:image" content="https://tnteqaq.github.io/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206005050471.png">
     
     
     <!--- Icon Part-->
@@ -51,7 +52,7 @@
     
     <title>
         
-            搭建jupyter服务器 -
+            区块链学习笔记Day1 -
         
         TnTeQAQ的blog
     </title>
@@ -221,7 +222,7 @@
 
         <div class="article-title">
             
-                <h1 class="article-title-regular">搭建jupyter服务器</h1>
+                <h1 class="article-title-regular">区块链学习笔记Day1</h1>
             
             </div>
             
@@ -243,15 +244,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-12-02 04:20:11</span>
-        <span class="mobile">2023-12-02 04:20:11</span>
+        <span class="desktop">2023-12-06 02:27:01</span>
+        <span class="mobile">2023-12-06 02:27:01</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-12-02 04:13:26</span>
-            <span class="mobile">2023-12-02 04:13:26</span>
+            <span class="desktop">2023-12-06 02:40:48</span>
+            <span class="mobile">2023-12-06 02:40:48</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -265,7 +266,7 @@
                     
                         
                         <li>
-                            <a href="/categories/%E5%A4%87%E5%BF%98%E5%BD%95/">备忘录</a>&nbsp;
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%AD/">学习中</a>&nbsp;
                         </li>
                     
                     
@@ -279,11 +280,15 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E5%B0%8F%E5%AF%84%E5%B7%A7/">小寄巧</a>&nbsp;
+                        <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/%E7%9C%9F%E8%BF%99%E4%B9%88%E5%B9%B2%E4%BD%A0%E5%B0%B1%E7%AD%89%E6%AD%BB%E5%90%A7/">真这么干你就等死吧</a>&nbsp;
+                        | <a href="/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/">以太坊</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">智能合约</a>&nbsp;
                     </li>
                 
             </ul>
@@ -305,86 +310,91 @@
 
 
         <div class="article-content markdown-body">
-            <p>随时随地访问jupyter，畅享加班生活。</p>
+            <p>学区块链做的笔记，大部分内容来自《精通以太坊》。</p>
 <span id="more"></span>
 
-<h3 id="1-准备"><a href="#1-准备" class="headerlink" title="1.准备"></a>1.准备</h3><ul>
-<li>一台服务器</li>
+<h3 id="区块链的组件"><a href="#区块链的组件" class="headerlink" title="区块链的组件"></a>区块链的组件</h3><p>一个公开的公共区块链通常包含以下组件：</p>
+<ul>
+<li>一个连接参与各方的<strong>点对点网络</strong>，用于传播交易和区块数据包，基于标准的“gossip”协议。</li>
+<li>以交易形式体现的<strong>消息</strong>，代表状态的转换。</li>
+<li>一组<strong>共识规则</strong>，用于管理构成交易的内容以及实现有效的状态转换。</li>
+<li>一个<strong>状态机</strong>，根据共识规则交易。</li>
+<li>一组串联在一起的、由加密算法保证其安全的<strong>区块</strong>，这些区块是所有已验证和已接受的状态转换的<strong>记录日志</strong>。</li>
+<li>一个<strong>共识算法</strong>，用于在区块链上实现控制的去中心化，这类算法通过强制参与者之间的合作以实现共识规则的有效执行。</li>
+<li>在博弈论上合理的<strong>激励方案</strong>（列如：工作量证明、区块奖励），以在开放环境中经济地保护状态机。</li>
+<li>上述一个或多个<strong>开源软件实现（客户端）</strong>。</li>
 </ul>
-<h3 id="2-在服务器上开启服务"><a href="#2-在服务器上开启服务" class="headerlink" title="2.在服务器上开启服务"></a>2.在服务器上开启服务</h3><p>这个网上教程太多了，就不讲了</p>
-<p>正常开启是这样的</p>
-<p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202011936041.png" alt="image-20231202011936041"></p>
-<p>可以看到它开在了本地</p>
-<h3 id="3-查看配置文件地址"><a href="#3-查看配置文件地址" class="headerlink" title="3.查看配置文件地址"></a>3.查看配置文件地址</h3><p>————————————————————————————————————</p>
-<p>写完了看别人博客的时候才发现根本不用这么麻烦</p>
-<p>直接</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --no-browser --ip 0.0.0.0</span><br></pre></td></tr></table></figure></div>
-
-<p>就可以把jupyter开在服务器上</p>
-<p>直接就可以跳过3、4、5步</p>
-<p>————————————————————————————————————</p>
-<p>在控制台输入</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook –generate-config</span><br></pre></td></tr></table></figure></div>
-
-<p>如果是首次输入会在默认目录下生成jupyter的配置文件</p>
-<p>如果已经有配置文件了就会询问是否覆盖，同时也会显示出文件的地址</p>
-<p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202012608960.png" alt="image-20231202012608960"></p>
-<h3 id="4-编辑配置文件"><a href="#4-编辑配置文件" class="headerlink" title="4.编辑配置文件"></a>4.编辑配置文件</h3><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/.jupyter/jupyter_notebook_config.py</span><br></pre></td></tr></table></figure></div>
-
-<p>查找c.NotebookApp.ip</p>
-<p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202012818266.png" alt="image-20231202012818266"></p>
-<p>把前面的注释去掉，然后改为</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip = <span class="string">&#x27;0.0.0.0&#x27;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>保存退出</p>
-<h3 id="5-启动jupyter"><a href="#5-启动jupyter" class="headerlink" title="5.启动jupyter"></a>5.启动jupyter</h3><p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202013114450.png" alt="image-20231202013114450"></p>
-<p>可以看到这里已经变成了主机名</p>
-<p>这时候去防火墙放行端口就可以在服务器上访问jupyter了</p>
-<p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202013403333.png" alt="image-20231202013403333"></p>
-<p><strong>记得带上token</strong></p>
-<h3 id="6-配置systemd"><a href="#6-配置systemd" class="headerlink" title="6.配置systemd"></a>6.配置systemd</h3><p>本来这步是没啥必要的</p>
-<p>但是自己就是又菜又爱玩，想去试试能不能开这个服务，然后花了好几个小时去倒腾systemd奇怪的环境配置（主要还是被conda被刺了）</p>
-<p>最后还是选择直接找到conda环境里的python，然后用绝对路径启动</p>
-<p>没用conda的话可以参考：</p>
-<p><a class="link" target="_blank" rel="noopener" href="https://www.cnblogs.com/xkgeng/p/14014858.html">搭建 Jupyter Notebook 服务（基于 Systemd 和 Nginx） - 循环展开 - 博客园 (cnblogs.com) <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-<p>如果<strong>装了conda</strong>，具体步骤如下：</p>
-<ol>
-<li><p>先确认自己用的conda的环境，如果是base环境python的位置和其他环境的不太一样</p>
+<h3 id="以太坊的组件"><a href="#以太坊的组件" class="headerlink" title="以太坊的组件"></a>以太坊的组件</h3><ul>
+<li><h4 id="点对点（P2P）网络"><a href="#点对点（P2P）网络" class="headerlink" title="点对点（P2P）网络"></a>点对点（P2P）网络</h4><p>以太坊运行在Ethereum Main Network上，这是一个通过TCP 30303端口寻址的网络，网络层运行的协议名为-DΞVp2p。</p>
 </li>
-<li><p>找到conda的位置</p>
-<p>这里可以用</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis conda</span><br></pre></td></tr></table></figure></div>
+<li><h4 id="共识规则"><a href="#共识规则" class="headerlink" title="共识规则"></a>共识规则</h4><p>以太坊的共识规则，由以太坊黄皮书（见后文中的“扩展阅读”）中的参考标准进行精确定义</p>
+</li>
+<li><h4 id="交易"><a href="#交易" class="headerlink" title="交易"></a>交易</h4><p>以太坊交易是一个网络消息，主要包含交易的发送方、接收方、价值和数据载荷。</p>
+</li>
+<li><h4 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h4><p>以太坊的状态转换由以太坊虚拟机（EVM）处理，这是一个基于栈的虚拟机，执行bytecode（字节码指令）。被称为“智能合约”的EVM程序采用高级语言（例如Solidity）编写，并编译为通过EVM执行的字节码。</p>
+</li>
+<li><h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>以太坊的区块链以数据库（通常采用Google的LevelDB）的方式保存在每一个节点之上，区块链内包含了交易和系统的状态，经过哈希处理的数据保存在Merkle Patricia Tree数据结构之内。</p>
+</li>
+<li><h4 id="共识算法"><a href="#共识算法" class="headerlink" title="共识算法"></a>共识算法</h4><p>以太坊使用比特币的共识模型 Nakamoto Consensus，它使用顺序单一签名块，由PoW加权重要性来确定最长链，从而确定当前状态。但是，有计划在不久的将来转向代号为Casper的PoS加权投票系统。</p>
+</li>
+<li><h4 id="经济安全性"><a href="#经济安全性" class="headerlink" title="经济安全性"></a>经济安全性</h4><p>以太坊当前使用名为Ethash的工作量证明算法，这个算法迟早将被放弃，并切换到PoS。</p>
+</li>
+<li><h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>以太坊有多个可以交互的客户端软件实现，其中最广泛使用的是Go-Ethereum（Geth）和Parity。</p>
+</li>
+</ul>
+<h3 id="一个简单的智能合约：Faucet"><a href="#一个简单的智能合约：Faucet" class="headerlink" title="一个简单的智能合约：Faucet"></a>一个简单的智能合约：Faucet</h3><p>书上用的是Ropsten测试网络，但是这条网络已经被关停了</p>
+<p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206005050471.png" alt="image-20231206005050471"></p>
+<p>然后比较出名的几个测试网络已经被薅的不成样子了</p>
+<p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206005300957.png" alt="image-20231206005300957"></p>
+<p>所以这里选择用Ganache自己搭一个测试网络进行测试</p>
+<p>搭建Ganache的教程网上有很多，这里不细讲</p>
+<h4 id="合约代码"><a href="#合约代码" class="headerlink" title="合约代码"></a>合约代码</h4><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 编译时的版本要对上</span><br><span class="line">pragma solidity 0.6.4;</span><br><span class="line"></span><br><span class="line">contract Faucet &#123;</span><br><span class="line">    // 用于接收以太币</span><br><span class="line">    receive() external payable &#123;&#125;</span><br><span class="line"></span><br><span class="line">    function withdraw(uint withdraw_amount) public &#123;</span><br><span class="line">        // 限制提款金额</span><br><span class="line">        require(withdraw_amount &lt;= 100000000000000000);</span><br><span class="line"></span><br><span class="line">        // 发送到地址</span><br><span class="line">        msg.sender.transfer(withdraw_amount);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 
-<p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202030750685.png" alt="image-20231202030750685"></p>
-<p>（这里用第一个路径）</p>
+<p>这里的 <em>receive() external payable {}</em> 在书中为 <em>function() public payable {}</em> 描述为：</p>
+<p>这个函数被称为<strong>回退函数或默认函数</strong>，它会在一些特殊情况下被调用，比如触发这个合约的交易没有指定调用哪一个具体函数，或者合约本身没有定义任何函数，再或者交易没有包含任何数据。合约可以有一个这样的<strong>默认函数（没有名字）</strong>，通常也使用这个函数来<strong>接收以太币</strong>。这也是为什么这个函数的定义包含public和payable属性，这意味着这个合约可以接收以太币。如函数声明的空花括号所显示的，除了接收以太币，这个合约什么也不会做。如果我们发起一个针对合约地址的交易，就像是把合约地址当作钱包使用，这个函数就会处理。</p>
+<p>receive()函数：</p>
+<ul>
+<li><p>(1) 一个合约至多含有一个receive()函数</p>
+<p>(2) 没有function关键字</p>
+<p>(3) 必须含有payable关键字</p>
+<p>(4) 没有参数，没有返回值</p>
+<p>(5) 可见性必须声明为external</p>
+<p>(6) 允许使用modifier修改器</p>
+<p>(7) 该函数通过.send()和.transfer()转发以太币</p>
+<p>(8) 若想要让你的contract(即合约账户)接收以太币，在未定义fallback() external payable{}函数时，需实现receive()函数</p>
+<p>(9) 在gasLimit允许范围内可执行复杂操作</p>
 </li>
-<li><p>找到python的位置</p>
-<p>一般base环境的python和conda一样在bin下面</p>
-<p>在图上就是**&#x2F;root&#x2F;anaconda3&#x2F;bin&#x2F;python**这个位置</p>
-<p>​		 <strong>[conda的安装位置]&#x2F;bin&#x2F;python</strong></p>
-<p>如果是其他的环境就在anaconda3下的envs里</p>
-<p>我这只新建了一个环境所以只有一个文件夹</p>
-<p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202031241763.png" alt="image-20231202031241763"></p>
-<p>到环境文件夹下的bin里就能看到python程序</p>
-<p>在图上就是**&#x2F;root&#x2F;anaconda3&#x2F;envs&#x2F;idsgame&#x2F;bin&#x2F;python**</p>
-<p>​		  <strong>[conda的安装位置]&#x2F;envs&#x2F;[环境名]&#x2F;bin&#x2F;python</strong></p>
+</ul>
+<p>还有一个专门的回退函数</p>
+<p>fallback()函数：</p>
+<ul>
+<li><p>(1) 一个合约至多含有一个fallback()函数</p>
+<p>(2) 没有function关键字</p>
+<p>(3) payable关键字是可选项，取决于该函数是否需要接收以太币</p>
+<p>(4) 该函数可代替receive()函数以实现合约接受转发以太币的功能</p>
+<p>(5) 可见性必须声明为external</p>
+<p>(6) 允许使用modifier修改器</p>
+<p>(7) 在gasLimit允许范围内可执行复杂操作</p>
 </li>
-<li><p>创建systemd任务</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/jupyter.service</span><br></pre></td></tr></table></figure></div>
-
-<p>向里面写入：<strong>（[ ]中的内容根据自己的实际情况进行替换！！！）</strong></p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description = jupyter server</span><br><span class="line">After = network.target syslog.target</span><br><span class="line">Wants = network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type = simple</span><br><span class="line">WorkingDirectory=[jupyter开启的根目录]</span><br><span class="line">ExecStart=[python的位置] -m jupyter notebook --allow-root</span><br><span class="line">Restart=always</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy = multi-user.target</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>启动服务</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start jupyter</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>查看状态</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status jupyter</span><br></pre></td></tr></table></figure></div>
-
-<p><img lazyload src="/images/loading.svg" data-src="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/image-20231202032141589.png" alt="image-20231202032141589"></p>
-<p>绿了就成功了，然后可以从里面看到登录用的token值</p>
-</li>
-</ol>
+</ul>
+<p>具体使用先不管，大概可以看成合约用于存放以太币的地方，可以对合约内的以太币进行转账等操作。</p>
+<h4 id="编译部署合约"><a href="#编译部署合约" class="headerlink" title="编译部署合约"></a>编译部署合约</h4><p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013025151.png" alt="image-20231206013025151"></p>
+<p>在这可以看到编译好的程序的详细信息</p>
+<p>部署上程序后因为使用的是本地的Ganache作为测试网络</p>
+<p>所以要查看已经部署上的合约可以上Ganache客户端进行查看</p>
+<p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013438736.png" alt="image-20231206013438736"></p>
+<h4 id="向合约充值"><a href="#向合约充值" class="headerlink" title="向合约充值"></a>向合约充值</h4><p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013640079.png" alt="image-20231206013640079"></p>
+<p>直接向合约地址转账</p>
+<p>可以看到合约内的钱增加了</p>
+<p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206013748675.png" alt="image-20231206013748675"></p>
+<h4 id="从合约提币"><a href="#从合约提币" class="headerlink" title="从合约提币"></a>从合约提币</h4><p>这里试了半天，一直出错</p>
+<p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206022030253.png" alt="image-20231206022030253"></p>
+<p>搞了半天才发现是这里的限制</p>
+<p><img lazyload src="/images/loading.svg" data-src="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/image-20231206022102460.png" alt="image-20231206022102460"></p>
+<p>100000000000000000wei 才 0.1eth</p>
+<p>这里改成小于这个数就可以提款成功了</p>
+<p>1e18wei &#x3D; 1eth</p>
+<p>顺便一提，如果数太大导致没有转账，但是交易还是进行了，也就是说手续费会照样扣，所以如果不是自己搭建的测试网络，在交易前还是先确认好交易信息比较好（</p>
 
         </div>
 
@@ -392,18 +402,18 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> 搭建jupyter服务器</li>
+        <li><strong>Title:</strong> 区块链学习笔记Day1</li>
         <li><strong>Author:</strong> TnTeQAQ</li>
         <li><strong>Created at
-                :</strong> 2023-12-02 04:20:11</li>
+                :</strong> 2023-12-06 02:27:01</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-12-02 04:13:26
+                    :</strong> 2023-12-06 02:40:48
             </li>
         
         <li>
-            <strong>Link:</strong> https://tnteqaq.github.io/2023/12/02/搭建jupyter服务器/
+            <strong>Link:</strong> https://tnteqaq.github.io/2023/12/06/区块链学习笔记Day1/
         </li>
         <li>
             <strong>
@@ -424,11 +434,15 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/%E5%B0%8F%E5%AF%84%E5%B7%A7/">#小寄巧</a>&nbsp;
+                        <a href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">#区块链</a>&nbsp;
                     </li>
                 
                     <li class="tag-item">
-                        <a href="/tags/%E7%9C%9F%E8%BF%99%E4%B9%88%E5%B9%B2%E4%BD%A0%E5%B0%B1%E7%AD%89%E6%AD%BB%E5%90%A7/">#真这么干你就等死吧</a>&nbsp;
+                        <a href="/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/">#以太坊</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">#智能合约</a>&nbsp;
                     </li>
                 
             </ul>
@@ -439,29 +453,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2023/12/06/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day1/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">区块链学习笔记Day1</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                         rel="next"
-                        href="/2023/09/11/hello-world/"
+                        href="/2023/12/02/%E6%90%AD%E5%BB%BAjupyter%E6%9C%8D%E5%8A%A1%E5%99%A8/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">第一篇博客</span>
+                                <span class="post-nav-title-item">搭建jupyter服务器</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -526,8 +525,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">搭建jupyter服务器</div>
-        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%87%86%E5%A4%87"><span class="nav-text">1.准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9C%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E5%BC%80%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-text">2.在服务器上开启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%9C%B0%E5%9D%80"><span class="nav-text">3.查看配置文件地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">4.编辑配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%90%AF%E5%8A%A8jupyter"><span class="nav-text">5.启动jupyter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E9%85%8D%E7%BD%AEsystemd"><span class="nav-text">6.配置systemd</span></a></li></ol>
+        <div class="page-title">区块链学习笔记Day1</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%9D%97%E9%93%BE%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="nav-text">区块链的组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E5%9D%8A%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="nav-text">以太坊的组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6%EF%BC%9AFaucet"><span class="nav-text">一个简单的智能合约：Faucet</span></a></li></ol>
 
     </div>
 </div>
