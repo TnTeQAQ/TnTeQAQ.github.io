@@ -1,0 +1,508 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>区块链学习笔记Day5：交易 | TnTeQAQ的blog</title><meta name="author" content="TnTeQAQ"><meta name="copyright" content="TnTeQAQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="学区块链做的笔记Day5，大部分内容来自《精通以太坊》。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区块链学习笔记Day5：交易">
+<meta property="og:url" content="https://tnteqaq.github.io/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/index.html">
+<meta property="og:site_name" content="TnTeQAQ的blog">
+<meta property="og:description" content="学区块链做的笔记Day5，大部分内容来自《精通以太坊》。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tnteqaq.github.io/img/megumin.jpg">
+<meta property="article:published_time" content="2023-12-16T19:35:43.000Z">
+<meta property="article:modified_time" content="2023-12-21T16:40:36.747Z">
+<meta property="article:author" content="TnTeQAQ">
+<meta property="article:tag" content="区块链">
+<meta property="article:tag" content="以太坊">
+<meta property="article:tag" content="智能合约">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tnteqaq.github.io/img/megumin.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://tnteqaq.github.io/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '区块链学习笔记Day5：交易',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-12-22 00:40:36'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/megumin.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="TnTeQAQ的blog"><span class="site-name">TnTeQAQ的blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">区块链学习笔记Day5：交易</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-12-16T19:35:43.000Z" title="Created 2023-12-17 03:35:43">2023-12-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-12-21T16:40:36.747Z" title="Updated 2023-12-22 00:40:36">2023-12-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%AD/">学习中</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="区块链学习笔记Day5：交易"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>学区块链做的笔记Day5，大部分内容来自《精通以太坊》。</p>
+<span id="more"></span>
+<blockquote>
+<p>交易是由外部账户发出的经过签名的消息，通过以太坊的网络传播，由矿工记录在区块链上。从另一个角度来看，交易是唯一能够触发区块链状态改变，或触发EVM上的合约执行的东西。以太坊是一个全局的单体状态机，交易是唯一能够让这台状态机向前推进并改变状态的东西。合约并不会自动运行。以太坊也不会在“后台”运行。所有这一切，都是由交易触发的。</p>
+</blockquote>
+<h2 id="交易的结构"><a href="#交易的结构" class="headerlink" title="交易的结构"></a>交易的结构</h2><p>交易是一串打包在一起的<strong>二进制数据</strong>，包括如下内容：</p>
+<ul>
+<li>nonce<br>一个序列编号，由创建这个交易的外部账号提供，用于防止交易的重放攻击。</li>
+<li>gas price<br>交易发起方愿意支付的gas（单位：wei）价格。</li>
+<li>gas limit<br>交易发起方愿意为这个交易支付的最大gas数量。</li>
+<li>recipient<br>目标以太坊地址。</li>
+<li>value<br>发送给目标地址的以太币数量。</li>
+<li>data<br>附在交易中的可变长度的数据。</li>
+<li>v,r,s<br>由构建交易的外部账户提供的椭圆曲线签名的三个组成部分。</li>
+</ul>
+<p>交易内容的结构采用<code>递归长度前缀（RLP）编码标准</code>。这个标准是以太坊专门创建的，主要是为了打包准确且字节合适的数据。以太坊交易中所有的数字都采用<strong>大端</strong>模式编码，长度都是8比特的倍数。</p>
+<p>请注意，上面这些结构的名字（to,gaslimit等）都是为了清楚表达而列出的，但这些并不是以太坊交易数据包的内容，数据包中的RLP编码已经包含了字段的定义信息。总体来说，RLP编码中不会包含任何字段标识符或者标签。RLP的长度偏移量用来表示每一个字段的长度。任何超过定义的长度，就自然属于结构体中下一个字段的内容了。（大概就类似TCP包这种感觉）</p>
+<h3 id="交易的随机数"><a href="#交易的随机数" class="headerlink" title="交易的随机数"></a>交易的随机数</h3><p><code>nonce</code>是交易中最重要确实最难理解的一个概念。以太坊黄皮书对nonce的定义如下：</p>
+<ul>
+<li>nonce：一个数值，等于这个地址发出的交易数量，当这个地址与合约关联时，是这个地址所创建的合约数量。</li>
+</ul>
+<p>严格来说，<code>nonce</code>是<strong>发起方</strong>地址的一个属性，也就是说它只在发送地址的上下文中才有意义。而且<code>nonce</code>也不会作为账户状态的一部分显式地保存在区块链上。相反，它是通过计算发送方地址已经确认的交易数量而动态计算的。</p>
+<p>在两种情况下，交易数量随机数的存在是非常重要的：包含在交易创建顺序中的可用性特征。以及交易重复保护的重要特征。让我们看一下每个场景的示例：</p>
+<ol>
+<li>你想进行两笔交易，其中一笔是需要支付6 ether的重要付款，另一笔交易需要支付8ether。首先，你签名并广播了那笔6ether的交易。因为它比较重要。然后，你又签名并广播了第二笔8ether的交易。遗憾的是，你忽略了一个事实，即你的账户只有10ether。所以（以太坊）网络不可能同时接受这两笔交易：其中一笔会失败。因为你首先发送了那笔更加重要的6ether的交易，于是你理所应当的认为它会被接受。而8ether的交易会被拒绝。但是，在像以太坊这样的去中心化系统中，节点会以<strong>任意顺序</strong>接收交易；没有任何方法能保证某个节点在另外一个节点之前接收到某笔交易。因此，几乎可以肯定的是，某些节点会先接收到6ether的交易，而一些节点会先接收到8ether的交易。在没有随机数的情况下，接收与否完全是随机的。相反，如果包含了随机数，那么你发送的第一笔交易将具有一个随机数，假设是3，而8ether 的交易将具有下一个随机数（如图 4）。因此，这笔交易将被忽略，直到 nonce值为0到3的交易已经被处理，即便它是先接收到的。<br>（感觉这个随机数并不算是真正的随机数，它反而像是对交易的编号）</li>
+<li>你有一个包含100ether的账户，太好了。你在网上找到了出售你非常想要的mcguffin挂件的卖家，并且他们接受以太币支付。你付给他们2ether。他们把mcguffin挂件发给了你。为了完成这笔2ether的支付，你签名了一笔交易，将账户里的2ether发送到他们的账户，然后将这笔交易广播到以太坊网络，使其能够被验证并包含到区块链中。现在，在交易没有nonce的情况下，再次将2ether发送给同一地址的交易与第一次交易看起来完全相同。这就意味着任何能在以太坊网络上看见这笔交易的人（包括收件人和你的敌人），都能简单地通过复制粘贴你的原始交易一次又一次的重放该交易，直到你的以太币消耗殆尽。但是，如果加以数据中包含nonce值，那么每一笔交易都是唯一的，即便是多次向同一个收件人地址发送相同数量的以太币交易也是如此。因此，通过将递增的随机数作为交易的一部分，任何人都没有办法“复制”你已经完成的付款。</li>
+</ol>
+<p>总之，值得注意的是，与比特币协议使用的 <code>“未花费输出”（UTXO)机制</code>相比，使用随机数对于基于账户的区块链协议实际上是至关重要的。</p>
+<h4 id="保持对随机数的追踪"><a href="#保持对随机数的追踪" class="headerlink" title="保持对随机数的追踪"></a>保持对随机数的追踪</h4><p>可以在安装过MetaMask插件的浏览器内打开控制台，输入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">ethereum</span></span><br><span class="line">  .<span class="title function_">request</span>(&#123;</span><br><span class="line">    <span class="string">&quot;method&quot;</span>: <span class="string">&quot;eth_getTransactionCount&quot;</span>,</span><br><span class="line">    <span class="string">&quot;params&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;&lt;想查询的地址&gt;&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;id&quot;</span>: <span class="number">0</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<p>也可以直接通过RPC API来获取，返回值如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;jsonrpc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;result&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x24&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>nonce是从0开始计数的。当上面的代码返回的值是9，意味着区块链上已经发现了这个地址从0到8的交易，下一个交易中应该写入的nonce值就是⑨。</p>
+</blockquote>
+<p>创建一个新的交易时，你会按照记录把下一个nonce值分配给新交易。但是要知道这笔交易被以太坊网络确认之前，交易中的nonce值都不会被计入getTransactionCount的返回值中。</p>
+<p>当我们一次提交几个交易时，getTransactionCount函数可能会发生一些问题。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; web3.<span class="property">eth</span>.<span class="title function_">getTransactionCount</span>(<span class="string">&quot;0x9e713963a92c02317a681b9bb3065a8249de124f&quot;</span>, \</span><br><span class="line"><span class="string">&quot;pending&quot;</span>)</span><br><span class="line"><span class="number">40</span></span><br><span class="line">&gt; web3.<span class="property">eth</span>.<span class="title function_">sendTransaction</span>(&#123;<span class="attr">from</span>: web3.<span class="property">eth</span>.<span class="property">accounts</span>[<span class="number">0</span>], <span class="attr">to</span>: \</span><br><span class="line"><span class="string">&quot;0xB0920c523d582040f2BCB1bD7FB1c7C1ECEbdB34&quot;</span>, <span class="attr">value</span>: web3.<span class="property">utils</span>.<span class="title function_">toWei</span>(<span class="number">0.01</span>, <span class="string">&quot;ether&quot;</span>)&#125;);</span><br><span class="line">&gt; web3.<span class="property">eth</span>.<span class="title function_">getTransactionCount</span>(<span class="string">&quot;0x9e713963a92c02317a681b9bb3065a8249de124f&quot;</span>, \</span><br><span class="line"><span class="string">&quot;pending&quot;</span>)</span><br><span class="line"><span class="number">41</span></span><br><span class="line">&gt; web3.<span class="property">eth</span>.<span class="title function_">sendTransaction</span>(&#123;<span class="attr">from</span>: web3.<span class="property">eth</span>.<span class="property">accounts</span>[<span class="number">0</span>], <span class="attr">to</span>: \</span><br><span class="line"><span class="string">&quot;0xB0920c523d582040f2BCB1bD7FB1c7C1ECEbdB34&quot;</span>, <span class="attr">value</span>: web3.<span class="property">utils</span>.<span class="title function_">toWei</span>(<span class="number">0.01</span>, <span class="string">&quot;ether&quot;</span>)&#125;);</span><br><span class="line">&gt; web3.<span class="property">eth</span>.<span class="title function_">getTransactionCount</span>(<span class="string">&quot;0x9e713963a92c02317a681b9bb3065a8249de124f&quot;</span>, \</span><br><span class="line"><span class="string">&quot;pending&quot;</span>)</span><br><span class="line"><span class="number">41</span></span><br><span class="line">&gt; web3.<span class="property">eth</span>.<span class="title function_">sendTransaction</span>(&#123;<span class="attr">from</span>: web3.<span class="property">eth</span>.<span class="property">accounts</span>[<span class="number">0</span>], <span class="attr">to</span>: \</span><br><span class="line"><span class="string">&quot;0xB0920c523d582040f2BCB1bD7FB1c7C1ECEbdB34&quot;</span>, <span class="attr">value</span>: web3.<span class="property">utils</span>.<span class="title function_">toWei</span>(<span class="number">0.01</span>, <span class="string">&quot;ether&quot;</span>)&#125;);</span><br><span class="line">&gt; web3.<span class="property">eth</span>.<span class="title function_">getTransactionCount</span>(<span class="string">&quot;0x9e713963a92c02317a681b9bb3065a8249de124f&quot;</span>, \</span><br><span class="line"><span class="string">&quot;pending&quot;</span>)</span><br><span class="line"><span class="number">41</span></span><br></pre></td></tr></table></figure>
+<p>当你的应用程序需要构建和发布交易时，不能依赖getTranscationCount这个函数来计算nonce值，只有当待确认交易和确认交易相等（所有的待确认交易都确认了）的时候，你才可以把getTranscationCount作为nonce计数，在此之后，在应用程序中保持对nonce的追踪，直到每一笔交易都得到确认。</p>
+<p><code>Parity</code>的JSONRPC接口提供了一个<code>parity_nextNonce</code>函数，它返回了可供下一个交易使用的nonce值。<code>parity_nextNonce</code>这个函数的计算方式是正确的。即使同时构建多个交易并且这些交易都没有得到确认，nonce的值也不会被计算错误。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ curl --data &#x27;&#123;&quot;method&quot;:&quot;parity_nextNonce&quot;, \</span><br><span class="line">  &quot;params&quot;:[&quot;<span class="number">0</span>x9e713963a92c02317a681b9bb3065a8249de124f&quot;],\</span><br><span class="line">  &quot;id&quot;:<span class="number">1</span>,&quot;jsonrpc&quot;:&quot;<span class="number">2</span>.<span class="number">0</span>&quot;&#125;&#x27; -H &quot;Content-<span class="built_in">Type</span>: application/json&quot; -X POST \</span><br><span class="line"><span class="function">  localhost:8545</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&#123;&quot;<span class="title">jsonrpc</span>&quot;:&quot;2.0&quot;,&quot;<span class="title">result</span>&quot;:&quot;0<span class="title">x32</span>&quot;,&quot;<span class="title">id</span>&quot;:1&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="随机数的差额、重复和确认"><a href="#随机数的差额、重复和确认" class="headerlink" title="随机数的差额、重复和确认"></a>随机数的差额、重复和确认</h4><p>以太坊网络是根据nonce数值的顺序处理交易的。</p>
+<p>如果你发起一个nonce值为0的交易，接着又发出了一个nonce值为2的交易，那么第二个交易不会被包含在任何区块中。它会被保存在<strong>待确认交易内存池</strong>中，以太坊网络会一直等待nonce值为1的交易出现。</p>
+<p>如果这时再创建一个nonce值为1的交易，那么这两个交易（nonce值为1和2）都会被确认并写入区块链。</p>
+<p>这意味着如果你按顺序创建了一系列交易，但其中一个<strong>没有得到确认</strong>，那么之后的所有交易都会“堵”住，等待这个缺失的交易。如果某个交易的<strong>nonce值不对</strong>，或者<strong>没有足够得gas</strong>，就很可能会导致这样的堵车现象，为了疏通堵车，你必须创建一个正确的交易，并使用缺失得那个nonce值。同样值得注意的是，一旦网络验证了“缺失”的交易，那么具有后续随机数的所有交易都会被广播，并逐渐变得有效；而且<strong>无法撤回</strong>任何交易。</p>
+<p>另一方面，如果你不小心创建了<strong>重复的交易</strong>。例如：发出了两个具有相同nonce值的交易，但是收款地址或交易金额不同，那么其中一个会被确认，而另外一个会被拒绝。最先到达以太坊网络中确认节点的那个交易会被确认（这会相当随机）。</p>
+<p>如你所见，追踪nonce的值是非常有必要的，如果你的应用程序没有正确的管理nonce,那么你就会遇到麻烦。糟糕的是，在<strong>并发</strong>交易的情况下，这个问题会变得更加困难。</p>
+<h4 id="并发情况下的随机数"><a href="#并发情况下的随机数" class="headerlink" title="并发情况下的随机数"></a>并发情况下的随机数</h4><p>处理并发是计算机科学中的一个难题，有时会在<strong>意想不到的情况</strong>下出现并发问题，尤其是去中心化的，分布式的，实时处理的系统中。如以太坊。</p>
+<p>简单的说，并发就是指多个独立的系统同时进行一项计算任务，可以是在同一个程序中（例如多线程），在同一颗CPU上（例如多进程),或者在不同的计算节点上（分布式系统），以太坊是一个允许并发操作（包含节点，客户端，去中心化的应用）。但通过共识强制维持单体状态的系统。</p>
+<p>假设我们有多个独立的钱包软件，正在使用相同的外部账户地址生成交易。这种情况的例子可以是交易所处理从热钱包中提币的操作（热钱包中的密钥是在线存储的，而冷钱包则不联网）。理想情况下，你一般会有<strong>不止一台计算机</strong>用于处理这些提币申请，这样不至于出现处理瓶颈或者单点故障。然而，这很快会引发另一个问题。使用多于一台计算机处理提币申请时，会导致一些令人头疼的<strong>并发问题</strong>，不仅仅是如何设定nonce的问题。如何使用多台计算机，针对同一个热钱包进行地址生成签名和广播交易呢？</p>
+<p>你应该使用<strong>一台计算机</strong>来分配nonce,以先到先得的方式给那些需要对交易进行签名的计算机。然而，这台计算机就会成为<strong>单点故障</strong>。更糟糕的是，如果分配了多个nonce，但是由于某些原因，有一个nonce没有被使用（例如：处理哪个Nonce的计算机正好出故障），那么随后所有的交易都会堵住</p>
+<p>你也可先生成交易，但是不签名，或分配nonce（由于nonce是交易数据的一部分，因此必须包含在用于认证交易的数字签名中）。然后把这些交易传送到一台计算机上排队处理，逐一给他们分配nonce，并对签名交易。不过，这也会导致单点故障的存在。当处理量比较大的时候，进行签名和分配nonce的操作就会成为一个<strong>拥堵</strong>的节点。尽管这些没有被签名的交易并非一定需要并发处理。我们虽然名义上使用了并发，但是在关键环节上并没有带来任何用处。</p>
+<p>最终，这些并发问题引发的在独立进程中追踪账户余额和交易确认的难题，迫使多数软件实现过程放弃使用并发，而不得不使用可能导致瓶颈的单一进程来处理所有的交易所提币操作，或者使用完全独立处理提币操作只需间歇性重新计算余额的热钱包。</p>
+<h3 id="交易的gas"><a href="#交易的gas" class="headerlink" title="交易的gas"></a>交易的gas</h3><p><code>gas</code>就是以太坊的燃料。<code>gas</code>并不是以太币，它是一种独立的虚拟货币，跟以太币之间存在汇率的关系。以太坊使用gas来控制交易对资源的使用，因为交易会在数以千计的以太坊节点上被处理。开放型（图灵完备）的计算模式需要一种计量单位，<em>以确保避免拒绝服务式攻击或过度消耗资源的交易。</em></p>
+<p><code>gas</code>独立于以太币，是为了在以太币价格大幅度波动的情况下，仍旧保护系统的灵活性。同时，对于各种消耗<code>gas</code>的资源（比如，计算、内存和存储），<code>gas</code>能够管理他们之间重要而敏感的汇率关系。</p>
+<p>交易中的<code>gasPrice</code>字段允许交易的发起方设定针对<code>gas</code>的汇率。<code>gas</code>价格的计量单位是 <code>wei/gas</code>,例如，我们刚才在本书中创建的交易示例，钱包软件把<code>gasPrice</code>设定为3gwei(3gigawei，即30亿wei)。</p>
+<p>钱包软件可以调整它们所发起的交易中的gasPrice值，这样就可以让交易更快得到区块链的确认（更快被矿工打包）。gasPrice越高，交易被确认的速度也越来越快。与之对应的是，相对低优先级的交易可以支付比平均值低的gas费用，这样它们被确认的时间也会较长。<strong>gasPrice最低可以为零</strong>，这意味着没有手续费的交易。如果区块中尚有多余的空间，那么这样的交易也会被矿工打包并提交到区块链上。</p>
+<p>与gas相关的第二个重要字段是<code>gasLimit</code>。简单地说，<code>gasLimit</code>表示这个交易的发起方为了完成交易所愿意支付的最大gas数量。对于简单的以太币转账来说，从一个外部账户转账到另一个外部账户，所需要的gas数量是固定的21000单位个gas。为了算出这些 gas对应的以太币数量，只需要使用 21000乘以你所指定的gasPrice。</p>
+<p>如果你的交易目标地址是一个合约，那么需要gas的数量可以估计，但是很难精确算出，因为合约可以根据不同的初始条件选择不同的执行路径，这样会导致不同的gas开销。这意味着合约可能只执行一个简单的计算，也可能是更复杂的计算。这些可能取决于一些你无法控制或预判的外部因素。为了解释清楚这个概念，我们举个例子：</p>
+<p>假设有这样一个智能合约，每次被调用时，它的计数器都会加一，并且执行一个特殊的循环，执行次数等于调用次数。有可能在第100次调用是，会出现一个特殊的奖励（像中彩票一样）。但是需要额外的计算量才能算出奖励，如果你调用了合约99次，都只会发生一件事情，但是第100次调用却完全不同。你所支付的gas数量取决于在你的交易被包含进区块之前，这个合约已经被调用了多少次。可能你所预估的gas是基于99次调用的。但是恰好在你的交易被矿工确认之前，其他人发起了第99次调用。现在你变成了发起第100次调用的那个人，这次调用所对应的计算量，也就是你需要支付的gas开销相比之前会大很多。</p>
+<p>借助以太坊常用的比喻，你可以把gasLimit字段想象为汽车的油箱（这里把交易比喻为汽车）。你会在启程前加够你认为这一路所需要的汽油（完成交易所需要的计算量）。你可以适当地估计油量，但是由于路上的突发情况，或者临时的线路更改（合约转入一个更复杂的计算分支），这些都可能增加汽车的油耗。</p>
+<p>也许油耗的比喻有一些误导，这更像一个用于加油站的信用账户·。你可以在旅程结束后支付，基于实际的gas开销。当你发出交易时，验证交易的第一个步骤就是确保发起交易的账户中有足够的以太币来支付对应的gas费用（即gasPrice*gas).但是这时并不会从账户中直接扣除gas，而是直到交易执行结束后才会扣除。你只会被扣除交易所执行实际发生的gas.但是账户中必须有高于你在交易中指定的最高的gas费用对应的以太币，这个交易才能通过验证。</p>
+<p>（gasLimit没咋懂）</p>
+<h3 id="交易的接收方"><a href="#交易的接收方" class="headerlink" title="交易的接收方"></a>交易的接收方</h3><p>交易的接收方在<code>to</code>字段中指定。这个字段包含了一个20字节的以太坊地址。这个地址既可以是外部账户，也可以是合约的地址。</p>
+<p>以太坊不会进一步验证这个地址。任何一个20字节的值都被认为是正确的。如果这20字节是一个没有私钥的地址，或者没有对应的合约。这个交易依然合法。以太坊无法判断这个地址是否是从已知的公钥（因而这个地址会有一个可以解锁的私钥）衍生而来的。</p>
+<blockquote>
+<p>以太坊协议也不会验证接收方地址的正确性，你可以向一个没有对应私钥的“地址’’发送以太币。这就相当于是<strong>销毁以太币</strong>。接收方地址的验证工作需要在用户应用这一层完成。</p>
+</blockquote>
+<p>实际上，也存在一些合理的销毁以太币的场景，如支付通道和其他合约存在欺诈行为时，由于以太币是有限的，销毁以太币能有效地将价值传到所有以太币持有者手上。</p>
+<h3 id="交易中的以太币和数据"><a href="#交易中的以太币和数据" class="headerlink" title="交易中的以太币和数据"></a>交易中的以太币和数据</h3><p>交易数据包的核心是这两个字段：<code>value</code>和<code>data</code>。交易可以同时包括value和data，只有value只有data或既没有value也没有data这几种情况都是正确的且合法的。</p>
+<p>只包含value的交易是支付操作。只包含data的交易是针对合约的调用。既没有value也没data的交易也许只是为了浪费gas（笑死），但是也是允许的。</p>
+<h4 id="向外部账户和合约转账的交易"><a href="#向外部账户和合约转账的交易" class="headerlink" title="向外部账户和合约转账的交易"></a>向外部账户和合约<em>转账</em>的交易</h4><p>当你构建的以太坊交易中包含value，也就是转账支付的以太币数量时，交易的行为模式取决于你的目的地址是另一个外部账户，还是一个合约。</p>
+<p>对于外部账户，或者任何在区块上没有注册为合约的地址，以太坊会记录这一次的状态变化，在目的账户余额中增加你所指定的以太币。如果你这个地址之前不存在，那么以太坊会在区块链上创建这个地址，把它的余额初始化你在支付交易中指定的value值。</p>
+<p>如果目标地址（to）是一个合约，那么EVM会执行这个合约，并尝试调用在交易的data字段中指定的函数。如果交易中的data字段是空的，那么EVM会指定目标合约的<strong>回退函数</strong>，如果这个会退函数是可支付的，那么根据函数的代码来决定下一步的执行动作。如果没有回退函数，那么交易的效果就是增加合约的余额，如同向钱包支付一样。</p>
+<p>合约可以在可支付函数被调用时，立刻通过抛出异常的方式拒绝转入的支付，也可以根据可支付回退函数的逻辑做出决定。如果可支付回退函数正常执行（没有异常），那么合约的状态就会被更新，以此反映出合约账户余额的变化。</p>
+<h4 id="向外部账户和合约传送数据的交易"><a href="#向外部账户和合约传送数据的交易" class="headerlink" title="向外部账户和合约传送数据的交易"></a>向外部账户和合约<em>传送数据</em>的交易</h4><p>当交易的data字段含有内容时，多数情况下这个交易的目标是一个合约。这并不意味着你不能通过交易向外部账户发送data字段。实际上，你完全可以这么做。然而，在这种情况下，对data字段内容的解读取决于目标外部账户的主人所使用的钱包软件。以太坊协议并未对此作出规定。大部分钱包软件会忽略针对外部账户交易中包含在 data字段中的内容。在将来，也许会有一些标准来规范化钱包软件如何使用交易中包含在data字段中的内容，这样也许可能允许用户调用运行在用户钱包内部的函数，非常重要的一点区别在于，<em>外部账户对交易中的data内容的解读和使用，都不属于以太坊区块链共识的一部分，这是完全不同于合约执行的。</em></p>
+<p>现在我们假设你的交易包含data字段的内容，目标是一个<strong>合约地址</strong>，在这样的情况下，data字段的内容会被EVM解读为针对合约的<strong>函数调用</strong>，调用data中指定的函数，并把需要的参数传递给这个函数。</p>
+<p>发送给合约的data字段内容是通过十六进制编码的：</p>
+<ul>
+<li>函数选择器<br>被调函数原型的<code>Keccak-256</code>哈希值的<strong>前4个字节</strong>。这允许EVM准确无误的识别被调函数。</li>
+<li>函数参数<br>函数的参数，根据EVM多种实现规则定义的编码结构。</li>
+</ul>
+<p>在之前的Faucet的代码中，我们定义了一个用于提币的函数：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">function withdraw(uint withdraw_amount) public &#123;</span><br></pre></td></tr></table></figure>
+<p>这个方法的原型定义为包含函数名称和圆括号内每一个参数类型的字符串。函数的名称<code>withdraw</code>，它接收一个参数，类型是 unit(也就是unit256）。所以这个函数的定义就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">withdraw(uint256)</span><br><span class="line"></span><br><span class="line">Keccak-256(&quot;withdraw(uint256)&quot;) = 0x2e1a7d4d13322e7b96f9a57413e1525c250fb7a9021cf91d1540d5b69f16a49f</span><br></pre></td></tr></table></figure>
+<p>这个哈希值的前4个字节是0x2e1a7d4d。这是“函数选择器”的值，用于告诉EVM调用的是哪一个函数。</p>
+<p>接着我们来计算作为参数传递给withdraw-amount的那个值。我们希望提取0.01ether。因此把这个值编码为<strong>十六进制大端字节序</strong> <em>无符号256位整数</em>，采用wei为单位：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; withdraw_amount = web3.<span class="property">utils</span>.<span class="title function_">toWei</span>(<span class="number">0.01</span>, <span class="string">&quot;ether&quot;</span>);</span><br><span class="line"><span class="string">&#x27;10000000000000000&#x27;</span></span><br><span class="line">&gt; withdraw_amount_hex = web3.<span class="property">utils</span>.<span class="title function_">toHex</span>(withdraw_amount);</span><br><span class="line"><span class="string">&#x27;0x2386f26fc10000&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>现在，增加函数选择器之后的调用内容如下（填满了32字节）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2e1a7d4d000000000000000000000000000000000000000000000000002386f26fc10000</span><br></pre></td></tr></table></figure>
+<p>这就是我们这个交易中data字段的内容，调用withdraw方法并通过withdraw-amount参数请求提取0.01ether。</p>
+<h4 id="特殊交易：合约创建"><a href="#特殊交易：合约创建" class="headerlink" title="特殊交易：合约创建"></a>特殊交易：合约创建</h4><p>有一种特殊的交易值得我们关注，即在区块链上创建新合约的交易，这些合约用于<strong>未来有需求</strong>的场合。合约注册交易的目的地是一个特殊的地址——<strong>零地址</strong>。简单地说，合约注册交易的<code>to</code>字段包含的是<code>0x0</code>。这个地址既不是一个外部账户地址（没有与之对应的私钥或者公钥），也不是一个合约地址。这个地址永远不能用来支付以太币或者触发交易。它只是作为一个目标，一个带有特殊的“注册合约”含义的目标地址。</p>
+<p>尽管全零地址仅用来进行合约注册，但有时候这个地址也会收到来自其他账户的以太币转账。对这个情况有两种解释：一种情况是由于误操作，这就导致了以太币的丢失；另一种情况是有意的销毁以太币（故意把以太币发到永远不会花费他的地址）。如果你希望有意的销毁一些以太币，那么需要向网络明确表示你的意图，使用这个特殊的销毁地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#因为在网上没有找到关于这个地址的其他信息所以就不贴了，销毁的话可以发送以太币到黑洞地址</span><br></pre></td></tr></table></figure>
+<p>合约注册交易中唯一需要的就是在<code>data</code>字段中包含<code>经过编译的合约字节码</code>。这个交易的唯一用处就是把合约注册到以太坊区块链上。你可以在<code>value</code>字段中包含以太币，从而为新的合约设置<code>起始余额</code>，但这完全是可选的。</p>
+<p>可以通过<code>eth_getTransactionReceipt</code>查看创建协议的信息。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;jsonrpc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;method&quot;</span><span class="punctuation">:</span> <span class="string">&quot;eth_getTransactionReceipt&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;params&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;0x84ade2620493cb791ddabed85335b971068f5f76d0e17c27cd9d59a3e763cf8a&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;jsonrpc&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;result&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;transactionHash&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x84ade2620493cb791ddabed85335b971068f5f76d0e17c27cd9d59a3e763cf8a&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;transactionIndex&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x0&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;blockNumber&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x4b&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;blockHash&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x1e458fcda7b98e7cc6f15eccba2452e266d557cc52723e5f44ffe1f22ca8d9a2&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;from&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x9969a78c4d4a7c78c53a879fd68d18f2a198333f&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;to&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;cumulativeGasUsed&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x27ff7&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;gasUsed&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x27ff7&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;contractAddress&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0xb15f34ce979113c59dbba0c986bb819f58c80bfe&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;logs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;logsBloom&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x1&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;effectiveGasPrice&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x596a7312&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0x2&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">0</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h3><p>以太坊中数字签名起到了三个作用：</p>
+<ol>
+<li>数字签名用来证明签名方是私钥的持有人，因此也就是对应以太坊账户的主人，用于兽圈以太坊的转账或合约的执行。</li>
+<li>用于证明这个“授权”是不可否认的。</li>
+<li>用于确保交易数据在经过签名之后没有也不能被任何人修改。</li>
+</ol>
+<blockquote>
+<p><strong>维基百科上关于数字签名的定义</strong></p>
+<p>数字签名是一种数学标准，用于证明某个数字消息或文档的真实性。一个合法的数字签名可以人接收方相信消息来自于已知的发送方（<strong>身份认证</strong>），发送方不能否认发送过这个消息（<strong>不可否认</strong>），同时这个消息在传输过程中是无法被修改的（<strong>完整性</strong>）。</p>
+<p>来源：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/數位簽章">数字签名 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+</blockquote>
+<h4 id="数字签名的工作原理"><a href="#数字签名的工作原理" class="headerlink" title="数字签名的工作原理"></a>数字签名的工作原理</h4><p>数字签名的数学标准中包含两个部分。</p>
+<ul>
+<li>第一部分适用于创建签名的算法，针对一个消息（列如我们的以太坊交易数据包）使用私钥（签名密钥）进行签名。</li>
+<li>第二部分是一个允许任何人使用消息和公钥进行签名验证的算法。</li>
+</ul>
+<h4 id="创建数字签名"><a href="#创建数字签名" class="headerlink" title="创建数字签名"></a>创建数字签名</h4><p>在以太坊的<code>ECDSA</code>实现中，<em>被签名的“消息”是交易的数据包</em>，或者更准确地说，是经过<code>RLP编码</code>的交易数据包的<code>Keccak-256</code>哈希值。签名密钥是外部账户的私钥，这个算法的输出结果就是一个数字签名：</p>
+<script type="math/tex; mode=display">
+Sig = F_{sig}(F_{keccak256}(m), k)</script><p>其中：</p>
+<ul>
+<li><script type="math/tex">k</script>是用于签名的私钥</li>
+<li><script type="math/tex">m</script>是经过<code>RLP编码</code>的<strong>交易数据包</strong></li>
+<li><script type="math/tex">F_{keccak256}</script>是<code>Keccak-256</code>哈希函数</li>
+<li><script type="math/tex">F_{sig}</script>是签名算法</li>
+<li><script type="math/tex">Sig</script>是输出的数字签名</li>
+</ul>
+<p>函数<script type="math/tex">F_{sig}</script>生成了一个签名，这个签名包含两部分内容，通常称为<script type="math/tex">r</script>和<script type="math/tex">s</script>：</p>
+<script type="math/tex; mode=display">
+Sig=(r,s)</script><h4 id="验证数字签名"><a href="#验证数字签名" class="headerlink" title="验证数字签名"></a>验证数字签名</h4><p>为了验证签名，我们必须有<strong>签名本身（即<script type="math/tex">r</script>和<script type="math/tex">s</script>）</strong>、<strong>交易数据包</strong>和<strong>公钥</strong>（对应着这个签名的私钥）。</p>
+<p>验证签名意味着：<strong>只有私钥的持有者才能够针对交易生成这样的签名</strong>。</p>
+<p><strong>签名验证算法</strong>的输入包括<strong>交易数据包</strong>（其实是交易的哈希值的一部分）、<strong>签名方的公钥和签名（<script type="math/tex">r</script>和<script type="math/tex">s</script>值）</strong>，如果针对消息和公钥的签名验证成功，算法会返回<code>true</code>。</p>
+<h4 id="ECDSA背后的数学过程"><a href="#ECDSA背后的数学过程" class="headerlink" title="ECDSA背后的数学过程"></a><code>ECDSA</code>背后的数学过程</h4><p>签名算法首先以密码学安全的方式生成一个<strong>*临时</strong>的私钥<em>。这个</em>临时的密钥<em>用于计算<script type="math/tex">r</script>和<script type="math/tex">s</script>的值，</em>以确保攻击者无法通过在以太坊上查看已签名的交易来计算发送者的真实密钥*。</p>
+<p>这个临时私钥是由以下两个输入决定的：</p>
+<ul>
+<li>一个密码学安全的随机数q，作为临时密钥。</li>
+<li>从q生成的临时公钥Q，以及椭圆曲线上的生成点G。</li>
+</ul>
+<p>数字签名中的r值就是临时公钥Q的<code>x轴</code>的值。</p>
+<p>在此基础上，算法计算数字签名的s值，通过如下公式：</p>
+<script type="math/tex; mode=display">
+s\equiv q^{-1}(Keccak256(m)+r*k)(\bmod p)</script><p>其中：</p>
+<ul>
+<li>q是临时私钥</li>
+<li>r是临时公钥对应的x轴坐标</li>
+<li>k是用于签名的私钥（外部账户持有人私钥）</li>
+<li>m是被签名的交易数据包（的哈希值）</li>
+<li>p是椭圆曲线上的素数阶</li>
+</ul>
+<blockquote>
+<p>p就是前面椭圆曲线公式定义里的p，为一个很大的素数。</p>
+<p><strong>secp256k1</strong>曲线的定义为：</p>
+<script type="math/tex; mode=display">
+xy^2\ \rm mod \ (p) = (x^3+7) \ \rm mod \ p</script><p>详细可查看<a href="https://tnteqaq.github.io/2023/12/10/区块链学习笔记Day3/">区块链学习笔记Day3：以太坊背后的密码学 | TnTeQAQ的blog</a></p>
+</blockquote>
+<p>签名生成流程图：</p>
+<p><img src="/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE.png" alt="未命名绘图" style="zoom: 25%;"></p>
+<p>验证签名是一个相反的操作，使用r，s和公钥的值来计算Q，Q是椭圆曲线上的一个点（用于本次签名创建的临时公钥），具体的步骤如下：</p>
+<ol>
+<li>检查所有的输入都是正确的形式</li>
+<li>计算<script type="math/tex">w=s^{-1}\bmod p</script></li>
+<li>计算<script type="math/tex">u_1=Keccak256(m)*w\bmod p</script></li>
+<li>计算<script type="math/tex">u_2=r*w\bmod p</script></li>
+<li>计算椭圆曲线上的点<script type="math/tex">Q\equiv u_1 *\_\ G+u_2*K(\bmod p)</script></li>
+</ol>
+<p>其中：</p>
+<ul>
+<li>r和s是数字签名的值</li>
+<li>K是签名方（外部账户持有人）的公钥</li>
+<li>m是被签名的交易数据包</li>
+<li>G是椭圆曲线上的生成点</li>
+<li>p是椭圆曲线上的素数阶</li>
+</ul>
+<p>如果计算得到的Q点对应的x轴坐标等于r，那么就可以认定这个签名是合法的。</p>
+<p>注意在整个签名验证的过程中，并不需要对外提供私钥（零知识证明？）。</p>
+<blockquote>
+<p>ECDSA的数学实现是非常复杂的，远远超出了本书的范围，网上有一些非常详细的关于椭圆曲线的介绍，请搜索“ECDSA Explained”，或访问<a target="_blank" rel="noopener" href="https://www.instructables.com/Understanding-how-ECDSA-protects-your-data/">Understanding How ECDSA Protects Your Data. : 15 Steps - Instructables</a></p>
+</blockquote>
+<p>验证签名流程图：</p>
+<p><img src="/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/%E6%9C%AA%E5%91%BD%E5%90%8D%E7%BB%98%E5%9B%BE%20(2).png" alt="未命名绘图 (2)" style="zoom:20%;"></p>
+<hr>
+<p>这里应该使用到了零知识证明来验证签名是否合法。</p>
+<p>因为网上的教程都有些难理解，这里我拿RSA算法举例，附上我的理解，如果有不对的地方还请大佬来指正。</p>
+<p>RSA算法生成了私钥<script type="math/tex">(n,d)</script>和公钥<script type="math/tex">(n,e)</script></p>
+<p>正常传输数据时，我们将数据用公钥加密，接收方用私钥解密，即可做到信息的加密传输。</p>
+<p>如果我们想将RSA用作签名，我们就需要在发出我们信息时，证明这条信息是由<strong>我</strong>来发出的。<br>这时候我们就可以<em>用私钥对信息进行一次加密，加密后的信息则只能被公钥所解密</em>。因为公私钥是成对生成的，因此如果只要信息能被我的公钥解密，就说明消息的发出方是我（除非我的私钥已经被泄露）。</p>
+<hr>
+<h4 id="交易签名实践"><a href="#交易签名实践" class="headerlink" title="交易签名实践"></a>交易签名实践</h4><p>为了生成一个正确的交易，<em>交易的发起方必须在交易的数据包中附带上使用椭圆曲线数字签名算法生成的数字签名</em>。当我们说“对某个交易签名”时，实际上是指<em>对“采用RLP编码的交易数据包的Keccak-256哈希值”进行签名</em>。签名是针对交易数据包的哈希值进行的，而不是针对交易数据包本身。</p>
+<p>在以太坊中签名一个交易，发起方需要：</p>
+<ol>
+<li><p>生成一个交易数据包，包括九个字段：<code>nonce</code>、<code>gasPrice</code>、<code>gasLimit</code>、<code>to</code>、<code>value</code>、<code>data</code>、<code>chainID</code>、<code>0</code>、<code>0</code>。</p>
+<blockquote>
+<p>这里这个0，0我确实没看懂啊，我去GitHub找了英文版也写的是0，0。</p>
+<p>但是我在网上找的盗版中文版又写的是另外的。</p>
+<p><img src="/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/image-20231220015318951.png" alt="image-20231220015318951"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/ethereum_book-zh/spilt.8.ee4988229e1934ea.md">第七章 交易 - 数字签名 - 《精通以太坊 （中文版）》 - 书栈网 · BookStack</a></p>
+</blockquote>
+</li>
+<li><p>把交易数据包进行<code>RLP格式编码</code>。</p>
+</li>
+<li><p>计算这个交易的<code>Keccak-256哈希值</code>。</p>
+</li>
+<li><p>计算<code>ECDSA签名</code>，使用交易方发起方的私钥进行签名。</p>
+</li>
+<li><p>在交易中插入经过<code>ECDSA签名</code>获得的v、r和s的值。</p>
+</li>
+</ol>
+<p><strong>特殊签名变量v</strong>代表两件事情：<strong>链ID</strong>，以及帮助<code>ECDSArecover</code>函数检查签名的<strong>恢复标识符</strong>。它被计算为27或28，或者将链ID加倍后再加上35或36。关于链ID更加详细的介绍请参考本章“<a href="#使用EIP-155创建原生交易">使用EIP-155创建原生交易</a>”一节的内容。恢复标识符（在“老式”签名中是27或者28，在完整的<code>SpuriousDragon</code>式签名中是35或者36）用来表明公钥的y分量奇偶性，更多细节同样在“<a href="#使用EIP-155创建原生交易">使用EIP-155创建原生交易</a>”一节中有介绍。</p>
+<h5 id="原生交易创建和签名"><a href="#原生交易创建和签名" class="headerlink" title="原生交易创建和签名"></a>原生交易创建和签名</h5><p>这一节我们来创建一个原生交易并对它进行签名，使用<code>ethereumjs-tx</code>这个程序库。这个例子展示了钱包中的常用功能，以及应用程序如何为用户签署交易。例子源代码位于：<a target="_blank" rel="noopener" href="https://github.com/ethereumbook/ethereumbook/tree/develop/code/web3js/raw_tx">ethereumbook/code/web3js/raw_tx at develop · ethereumbook/ethereumbook (github.com)</a></p>
+<p>运行前要先安装环境：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br><span class="line">npm install ethereumjs-tx</span><br></pre></td></tr></table></figure>
+<p>这里直接运行可能会有些问题</p>
+<p><img src="/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/image-20231220134137212.png" alt="image-20231220134137212"></p>
+<p>盲猜应该是ethereumjs-tx版本导致的，因为不清楚具体要哪个版本，然后在搜索的时候发现好像有人也遇到了这个问题，然后回答提供了ethereumjs-tx的GitHub的地址，上面有一个实例代码。<a target="_blank" rel="noopener" href="https://github.com/ethereumjs/ethereumjs-tx?tab=readme-ov-file">ethereumjs/ethereumjs-tx: Project is in active development and has been moved to the EthereumJS VM monorepo. (github.com)</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">EthereumTx</span> = <span class="built_in">require</span>(<span class="string">&#x27;ethereumjs-tx&#x27;</span>).<span class="property">Transaction</span></span><br><span class="line"><span class="keyword">const</span> privateKey = <span class="title class_">Buffer</span>.<span class="title function_">from</span>(</span><br><span class="line">  <span class="string">&#x27;e331b6d69882b4cb4ea581d88e0b604039a3de5967688d3dcffdd2270c0fd109&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;hex&#x27;</span>,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> txParams = &#123;</span><br><span class="line">  <span class="attr">nonce</span>: <span class="string">&#x27;0x00&#x27;</span>,</span><br><span class="line">  <span class="attr">gasPrice</span>: <span class="string">&#x27;0x09184e72a000&#x27;</span>,</span><br><span class="line">  <span class="attr">gasLimit</span>: <span class="string">&#x27;0x2710&#x27;</span>,</span><br><span class="line">  <span class="attr">to</span>: <span class="string">&#x27;0x0000000000000000000000000000000000000000&#x27;</span>,</span><br><span class="line">  <span class="attr">value</span>: <span class="string">&#x27;0x00&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: <span class="string">&#x27;0x7f7465737432000000000000000000000000000000000000000000000000000000600057&#x27;</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// The second parameter is not necessary if these values are used</span></span><br><span class="line"><span class="keyword">const</span> tx = <span class="keyword">new</span> <span class="title class_">EthereumTx</span>(txParams, &#123; <span class="attr">chain</span>: <span class="string">&#x27;mainnet&#x27;</span>, <span class="attr">hardfork</span>: <span class="string">&#x27;petersburg&#x27;</span> &#125;)</span><br><span class="line">tx.<span class="title function_">sign</span>(privateKey)</span><br><span class="line"><span class="keyword">const</span> serializedTx = tx.<span class="title function_">serialize</span>()</span><br></pre></td></tr></table></figure>
+<p>对比了下，发现问题可能出现在data这里</p>
+<p>书上的代码改成：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const txData = <span class="punctuation">&#123;</span></span><br><span class="line">  nonce<span class="punctuation">:</span> &#x27;<span class="number">0x00</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">  gasPrice<span class="punctuation">:</span> &#x27;<span class="number">0x09184e72a000</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">  gasLimit<span class="punctuation">:</span> &#x27;<span class="number">0x30000</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">  to<span class="punctuation">:</span> &#x27;<span class="number">0xb0920c523d582040f2bcb1bd7fb1c7c1ecebdb34</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">  value<span class="punctuation">:</span> &#x27;<span class="number">0x00</span>&#x27;<span class="punctuation">,</span></span><br><span class="line">  data<span class="punctuation">:</span> &#x27;<span class="number">0x00</span>&#x27;<span class="punctuation">,</span>   <span class="comment">//这里原本的data值是空，只要随便写点东西就可以正常运行</span></span><br><span class="line">  v<span class="punctuation">:</span> <span class="string">&quot;0x1c&quot;</span><span class="punctuation">,</span> <span class="comment">// Ethereum mainnet chainID</span></span><br><span class="line">  r<span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  s<span class="punctuation">:</span> <span class="number">0</span> </span><br><span class="line"><span class="punctuation">&#125;</span>;</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/image-20231220134742767.png" alt="image-20231220134742767"></p>
+<h5 id="使用EIP-155创建原生交易"><a href="#使用EIP-155创建原生交易" class="headerlink" title="使用EIP-155创建原生交易"></a>使用EIP-155创建原生交易</h5><p>名为“简单重放攻击保护”的<code>EIP-155</code>标准制定了带有重放攻击保护能力的交易的编码格式，这个标准在交易签名之前包含了一个链标识符。这确保在一个以太坊区块链（如以太坊主网）上创建的交易在其他以太坊区块链（如以太坊经典）上是不合法的。因此，<strong>在一个网络上广播的交易不能被重放到另一个网络</strong>，这就是重放攻击保护名字的来源。</p>
+<p><code>EIP-155</code>在包含六个字段的交易的数据结构中添加了三个字段，分别是<strong>链标识符</strong>、<strong>0</strong>和<strong>0</strong>。这三个值在交易被编码和哈希之前加入数据结构中。因此这三个值会改变交易的哈希值，这个哈希值之后是用来被签名的。</p>
+<p>链标识符会根据交易处在的以太坊网络取不同的值：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Chain</th>
+<th>Chain ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethereum mainnet</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Morden (obsolete), Expanse</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Ropsten</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Rinkeby</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Rootstock mainnet</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Rootstock testnet</td>
+<td>31</td>
+</tr>
+<tr>
+<td>Kovan</td>
+<td>42</td>
+</tr>
+<tr>
+<td>Ethereum Classic mainnet</td>
+<td>61</td>
+</tr>
+<tr>
+<td>Ethereum Classic testnet</td>
+<td>62</td>
+</tr>
+<tr>
+<td>Geth private testnets</td>
+<td>1337</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>产生的交易数据经过RLP编码、哈希并签名。这个签名算法经过少量的修改，以对v前缀中的链标识符进行编码。</p>
+<p>更多细节请参考<a target="_blank" rel="noopener" href="https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md">EIP-155规范</a>。</p>
+<h4 id="签名的前缀值（v）和公钥恢复"><a href="#签名的前缀值（v）和公钥恢复" class="headerlink" title="签名的前缀值（v）和公钥恢复"></a>签名的前缀值（v）和公钥恢复</h4><p>获得了公钥之后，就很容易计算出交易发起方的以太坊地址。整个过程称为<strong>公钥恢复</strong>。</p>
+<p>对于给定的供椭圆曲线进行计算的r和s，我们可以算出两个可能的公钥。</p>
+<p>首先，我们通过签名中r值的x坐标，计算椭圆曲线上的点R和R’。因为<strong>椭圆曲线是关于x轴对称</strong>的，所以对于x值，在椭圆曲线上有两个满足的点，分列在x轴的两侧。</p>
+<p>通过<script type="math/tex">r</script>，我们也可以计算出<script type="math/tex">r^{-1}</script>，这是<strong><script type="math/tex">r</script>的模乘法逆运算</strong>。</p>
+<p>最终我们可以计算得到z，这是交易哈希值低位的第n位，其中n是椭圆曲线的阶。</p>
+<p>因此两个可能的公钥是：</p>
+<script type="math/tex; mode=display">
+K_1=r^{-1}(sR-zG)</script><p>和</p>
+<script type="math/tex; mode=display">
+K_2=r^{-1}(sR'-zG)</script><p>其中：</p>
+<ul>
+<li><script type="math/tex">K_1</script>和<script type="math/tex">K_2</script>是交易发起方的两个可能的公钥</li>
+<li><script type="math/tex">r^{-1}</script>是签名中<script type="math/tex">r</script>值的模乘法逆运算</li>
+<li><script type="math/tex">s</script>是签名中的<script type="math/tex">s</script>值</li>
+<li><script type="math/tex">R</script>和<script type="math/tex">R’</script>是临时公钥的两个可能的值</li>
+<li><script type="math/tex">z</script>是交易哈希值低位的第<script type="math/tex">n</script>位</li>
+<li><script type="math/tex">G</script>是椭圆曲线的生成点</li>
+</ul>
+<p>为了让事情变得更高效，交易签名中包含了一个v字段。如果v是偶数，那么<script type="math/tex">R</script>就是正确的值。如果v是奇数，那么<script type="math/tex">R'</script>就是临时公钥。通过这样的方式，我们只需要计算R就可以得到K的值。</p>
+<h4 id="离线签名"><a href="#离线签名" class="headerlink" title="离线签名"></a>离线签名</h4><p>当交易被签名后，它就可以被广播到以太坊网络。通常交易的创建签名和广播都是在一个操作中完成的。例如：<code>web3.eth.sendTranscation</code>。然而，如我们在本章“<a href="#原生交易创建和签名">原生交易创建和签名</a>”一节中所见，你可以把创建和签名交易的动作分成两步来执行。签名完成后，你可以使用 <code>web3.eth.sendSignedTransaction</code>广播交易，这个方法接受十六进制编码和经过签名的交易数据包，并把这个数据包广播到以太坊网络上。</p>
+<p><em>为什么我们想要把交易的签名和广播分开处理呢</em>？主要原因是<strong>安全</strong>。用于签名的计算机必须保存在外部账户的私钥，用于广播交易的计算机必须连接在互联网上，并且运行在以太坊客户端。如果这两个操作在用一台计算机上完成，那么就相当于把私钥放置在了一台联网的计算机上，这是非常危险的。<em>把交易的签名和广播分开处理的做法</em>称为<strong>离线签名</strong>（联网的设备和未联网的设备分别处理），这是一种非常常见的安全实践。</p>
+<p><img src="/2023/12/17/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day5/offline_signing.png" alt="offline_signing"></p>
+<ol>
+<li>为当前状态的账户通过在线的计算机创建一个未签名的交易，可以检索该账户当前的<code>nonce</code>和余额。</li>
+<li>将未签名的交易转移到“空气隔离”的离线设备以便进行签名，如通过QR码或USB闪存设备。</li>
+<li>将已签名的交易转移回在线设备，以便在以太坊区块链上进行广播，如通过QR码或USB闪存设备。</li>
+</ol>
+<p>取决于我们所需要的安全等级（等保是吧），用于“离线签名’’的计算机可以有不同等级的安全防护，可以是处在防火墙之后的专用子网中的计算机，也可以是一台完全离线的计算机（我们称之为空气隔离）在”空气隔离“的系统中根本就没有网络连接，计算机完全隔离于任何网络环境。在隔离环境完成交易签名之后，你需要通过存储介质，或者网络摄像头和QR编码的方式把签名后的数据包转移到在线计算机。这也意味着每一笔交易都需要这样的方式才能转移到在线计算机，这太不方便了。</p>
+<p>很多情况下完全空气隔离的系统是不可用的，但是即使是一定程度的隔离，也会带来极大的安全优势。例如，一个在防火墙之后的专用子网，只允许消息队列协议通过，这相比在网上系统处理签名而言，攻击面更小，更安全。很多公司在交易签名计算机使用<code>ZeroMQ(0MQ）消息队列</code>，它的攻击面很小。使用这样的设置，交易通过消息队列完成签名。消息队列协议采用类似TCP数据包的方式把交易数据包发送给签名计算机。签名计算机从消息队列中读取交易数据包，使用恰当的密钥对交易进行签名，然后把签名之后的交易数据包发回到回复消息队列。这个回复消息队列接着把交易发送给带有以太坊客户端的联网计算机，进行交易广播。</p>
+<h2 id="交易的传播"><a href="#交易的传播" class="headerlink" title="交易的传播"></a>交易的传播</h2><p>以太坊网络使用“洪泛”路由协议。每一个以太坊客户端都是P2P网络上的一个节点，这些节点构成了一个网状的结构。没有任何节点是特殊的，它们之间的身份都是对等的。我们会使用“节点”来代表连接在P2P网络上的以太坊客户端。</p>
+<p>交易的广播从一个发起以太坊节点的交易创建（或从离线设备接收）和签名开始。交易通过验证后，会传送给所有跟这个发起节点直接相连的以太坊节点。平均而言，每一个以太坊节点大约维护了至少<strong>13个</strong>跟他直接相连的其他节点，称为<strong>邻居</strong>。每一个邻居节点都会在收到交易数据包后立刻进行验证。如果他们确认交易数据包是合法的，这些节点就会保留一份交易副本，然后把交易数据包广播给与他们相连的邻居（除去消息来源的那个上游节点）。因此交易就像水中的波纹一样，在整个网络中迅速传播开，直到所有节点都收到了一份交易的副本。节点可以对所广播的消息进行过滤，但默认情况下，节点会广播收到所有的验证消息。</p>
+<p>在短短的<strong>几秒钟</strong>时间内，一个以太坊交易就能到达全球范围内所有的以太坊节点。从单个节点的角度而言，它无从知晓这个消息的来源。向这个节点发送交易的邻居，可能只是扮演了“二传手’’的角色，但也可能是交易的真正发起方。为了追踪到交易的最初发起方，或者影响交易在以太坊中传播的形式，攻击者必须要控制网络中的大部分节点。这是P2P网络安全和隐私性的设计，对于区块链而言尤为重要。</p>
+<h2 id="记录在区块链上"><a href="#记录在区块链上" class="headerlink" title="记录在区块链上"></a>记录在区块链上</h2><p>尽管以太坊网络上的所有节点都是平等的，但有些节点会扮演矿工的角色，这些<strong>*矿工</strong>把交易打包成区块链<em>，投入到具备高性能GPU的矿场中，这些挖矿用的节点把一些交易打包成候选区块，使用“<em>*工作量证明</em></em>’’算法完成挖矿并达成全网共识。</p>
+<p>不需要深入细节，合法验证过的交易最终会被包含在一个区块中，并且记录在以太坊区块链上。计入区块链之后，交易就会更改以太坊网络的单体，修改账户余额（对于转账类交易而言），或者调用改变内部状态的合约。这些变化在交易进行的同时被记录，称之为交易的收据，也可能会包含一些事件。</p>
+<p>一笔交易完成了他从创建、由外部账户私钥签名，广播最终写入区块链的旅程。它会触发以太坊单体状态的修改，并在区块链上留下自己的印记。</p>
+<h2 id="多签名交易"><a href="#多签名交易" class="headerlink" title="多签名交易"></a>多签名交易</h2><p>如果你对比特币脚本的功能很熟悉的话，就会知道创建多重账户是可能的，该账户只有在多方共同签名的情况下才能花费其中的资金（比如2或者3或者4个签名中的2个）以太坊基本的外部账户值交易并没有提供多重签名的功能，但是，任何有关签名的限制都可以通过<strong>智能合约</strong>来强制执行，包括你能想到的关于交易以太币和其他通证的任何条件。</p>
+<p>为了利用这种能力，以太币必须被转移到“<strong>钱包合约</strong>”，该合约对支出规则进行了编程，例如：多重签名或者要求支出限额（或者两者的结合）。一旦满足支出条件，钱包合约将在外部账户的授权提示下进行支出。所以，要想在多重条件下保护你的以太币，请将以太币转移到多重签名合约。每当你想将资金发送到另外一个账户时，所有必要的用户都需要通过常规的钱包应用向合约发送交易，从而有效授权合约执行最终的交易。</p>
+<p>这些合约还可以被设计为在执行本地代码之前需要多个签名或者触发其他合约。这个方案的安全性最终由多重签名合约的代码所决定</p>
+<p>能够为只能合约实现多重签名的能力证明了以太坊的灵活性。但是，这是一把双刃剑，额外的灵活性可能会导致<em>bug</em>，从而破坏多重签名方案的安全性。实际上，有许多提案建议在EVM中添加多重签名命令，以消除对智能合约的要求，至少对于简单的<code>M-of-N多重签名方案</code>来说是这样的。这就相当于比特币的多重签名系统，它是核心共识规则的一部分，并且已被证明是健壮和安全的。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/">区块链</a><a class="post-meta__tags" href="/tags/%E4%BB%A5%E5%A4%AA%E5%9D%8A/">以太坊</a><a class="post-meta__tags" href="/tags/%E6%99%BA%E8%83%BD%E5%90%88%E7%BA%A6/">智能合约</a></div><div class="post_share"><div class="social-share" data-image="/img/megumin.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/12/21/%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%8F%98%E9%87%8F%E8%A1%A8/" title="以太坊变量表"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">以太坊变量表</div></div></a></div><div class="next-post pull-right"><a href="/2023/12/14/%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0Day4/" title="区块链学习笔记Day4：钱包"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">区块链学习笔记Day4：钱包</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/megumin.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">TnTeQAQ</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/TnTeQAQ"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%98%93%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">交易的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%98%93%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">交易的随机数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E6%8C%81%E5%AF%B9%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E8%BF%BD%E8%B8%AA"><span class="toc-number">1.1.1.</span> <span class="toc-text">保持对随机数的追踪</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%95%B0%E7%9A%84%E5%B7%AE%E9%A2%9D%E3%80%81%E9%87%8D%E5%A4%8D%E5%92%8C%E7%A1%AE%E8%AE%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">随机数的差额、重复和确认</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E6%83%85%E5%86%B5%E4%B8%8B%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="toc-number">1.1.3.</span> <span class="toc-text">并发情况下的随机数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%98%93%E7%9A%84gas"><span class="toc-number">1.2.</span> <span class="toc-text">交易的gas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%98%93%E7%9A%84%E6%8E%A5%E6%94%B6%E6%96%B9"><span class="toc-number">1.3.</span> <span class="toc-text">交易的接收方</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%98%93%E4%B8%AD%E7%9A%84%E4%BB%A5%E5%A4%AA%E5%B8%81%E5%92%8C%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.</span> <span class="toc-text">交易中的以太币和数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E5%A4%96%E9%83%A8%E8%B4%A6%E6%88%B7%E5%92%8C%E5%90%88%E7%BA%A6%E8%BD%AC%E8%B4%A6%E7%9A%84%E4%BA%A4%E6%98%93"><span class="toc-number">1.4.1.</span> <span class="toc-text">向外部账户和合约转账的交易</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E5%A4%96%E9%83%A8%E8%B4%A6%E6%88%B7%E5%92%8C%E5%90%88%E7%BA%A6%E4%BC%A0%E9%80%81%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BA%A4%E6%98%93"><span class="toc-number">1.4.2.</span> <span class="toc-text">向外部账户和合约传送数据的交易</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E4%BA%A4%E6%98%93%EF%BC%9A%E5%90%88%E7%BA%A6%E5%88%9B%E5%BB%BA"><span class="toc-number">1.4.3.</span> <span class="toc-text">特殊交易：合约创建</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">1.5.</span> <span class="toc-text">数字签名</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.5.1.</span> <span class="toc-text">数字签名的工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">1.5.2.</span> <span class="toc-text">创建数字签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-number">1.5.3.</span> <span class="toc-text">验证数字签名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ECDSA%E8%83%8C%E5%90%8E%E7%9A%84%E6%95%B0%E5%AD%A6%E8%BF%87%E7%A8%8B"><span class="toc-number">1.5.4.</span> <span class="toc-text">ECDSA背后的数学过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E6%98%93%E7%AD%BE%E5%90%8D%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.5.5.</span> <span class="toc-text">交易签名实践</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%98%93%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AD%BE%E5%90%8D"><span class="toc-number">1.5.5.1.</span> <span class="toc-text">原生交易创建和签名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8EIP-155%E5%88%9B%E5%BB%BA%E5%8E%9F%E7%94%9F%E4%BA%A4%E6%98%93"><span class="toc-number">1.5.5.2.</span> <span class="toc-text">使用EIP-155创建原生交易</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AD%BE%E5%90%8D%E7%9A%84%E5%89%8D%E7%BC%80%E5%80%BC%EF%BC%88v%EF%BC%89%E5%92%8C%E5%85%AC%E9%92%A5%E6%81%A2%E5%A4%8D"><span class="toc-number">1.5.6.</span> <span class="toc-text">签名的前缀值（v）和公钥恢复</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A6%BB%E7%BA%BF%E7%AD%BE%E5%90%8D"><span class="toc-number">1.5.7.</span> <span class="toc-text">离线签名</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%98%93%E7%9A%84%E4%BC%A0%E6%92%AD"><span class="toc-number">2.</span> <span class="toc-text">交易的传播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E5%9C%A8%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%8A"><span class="toc-number">3.</span> <span class="toc-text">记录在区块链上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%AD%BE%E5%90%8D%E4%BA%A4%E6%98%93"><span class="toc-number">4.</span> <span class="toc-text">多签名交易</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By TnTeQAQ</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
