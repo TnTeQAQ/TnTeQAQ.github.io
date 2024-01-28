@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>最近的一些总结 | TnTeQAQ的blog</title><meta name="author" content="TnTeQAQ"><meta name="copyright" content="TnTeQAQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="最近做了几个小的项目，做个总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最近的一些总结">
+<meta property="og:url" content="https://tnteqaq.github.io/2024/01/29/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="TnTeQAQ的blog">
+<meta property="og:description" content="最近做了几个小的项目，做个总结。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tnteqaq.github.io/img/megumin.jpg">
+<meta property="article:published_time" content="2024-01-28T17:15:10.000Z">
+<meta property="article:modified_time" content="2024-01-28T19:00:55.669Z">
+<meta property="article:author" content="TnTeQAQ">
+<meta property="article:tag" content="flask">
+<meta property="article:tag" content="项目开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tnteqaq.github.io/img/megumin.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://tnteqaq.github.io/2024/01/29/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '最近的一些总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-29 03:00:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/megumin.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="TnTeQAQ的blog"><span class="site-name">TnTeQAQ的blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">最近的一些总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-28T17:15:10.000Z" title="Created 2024-01-29 01:15:10">2024-01-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-28T19:00:55.669Z" title="Updated 2024-01-29 03:00:55">2024-01-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E4%B8%AD/">学习中</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="最近的一些总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>最近做了几个小的项目，做个总结。</p>
+<span id="more"></span>
+<p>最近主要在整三个小网站</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Umbrella167/HUGEMINI">Umbrella167/HUGEMINI (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TnTeQAQ/HULaTeX">TnTeQAQ/HULaTeX (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TnTeQAQ/HUProblem_Analyzer">TnTeQAQ/HUProblem_Analyzer (github.com)</a></p>
+<p>下面是对这三个小网站的一个总结。</p>
+<h2 id="HUGEMINI"><a href="#HUGEMINI" class="headerlink" title="HUGEMINI"></a><a target="_blank" rel="noopener" href="https://github.com/Umbrella167/HUGEMINI">HUGEMINI</a></h2><p>第一个是给谷歌的gemini写了个web界面，类似的github上已经有很多了，如下</p>
+<p><img src="/2024/01/29/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/image-20240129012406268.png" alt="image-20240129012406268"></p>
+<p>这个项目的前后端用时大概在，<strong>前端8：后端2</strong>左右，感觉前端根本不应该花这么多时间。</p>
+<p>然后代码中用到flask后端渲染的基本没有，基本上都是靠原生js来处理了。感觉flask用了个寂寞。</p>
+<p>这个项目中遇到的几个问题感觉还需要学习完善一下。</p>
+<ol>
+<li>前端搭建用时过长，相加新功能就可能对每个模块进行大幅改造。（不大清楚现在的框架能不能做到快速搭建好看有用的页面）</li>
+<li>git的使用问题，问就是完全不会用，版本搞得一坨，还有上传文件时包含了key，有没有办法在代码中单独注释一段让git忽略，难道每次上传都要去删key吗（有点麻烦）。</li>
+</ol>
+<h2 id="HULaTeX"><a href="#HULaTeX" class="headerlink" title="HULaTeX"></a><a target="_blank" rel="noopener" href="https://github.com/TnTeQAQ/HULaTeX">HULaTeX</a></h2><p>给同学写的网页LaTeX编辑器</p>
+<p><img src="/2024/01/29/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/image-20240129014305283.png" alt="image-20240129014305283"></p>
+<p>这个写的挺不满意的，但感觉主要的问题出在latex，实在是太多编译方法了，有的时候还需要编译两遍。</p>
+<p>我程序里用的pdflatex来编译的，是通过python subprocess.run()直接调用的。</p>
+<p>为啥这样调，因为pip安装了pdflatex，结果老是说临时文件找不到，就去看了下他怎么写的，结果他也是subprocess.run()直接调用的😅。</p>
+<p>这个东西就是这个项目的噩梦，感觉一切的不适都是这玩意引起的。</p>
+<p>下面是这个项目的一些问题：</p>
+<ol>
+<li>项目环境问题，我本来是想在同学的电脑上让他直接跑这个程序的，结果因为pdflatex这玩意各种出问题，反正就是跑不起来，最后也没用这玩意。（其实还想试试用docker去配这个环境的，但是我同学他电脑没docker啊！！！）</li>
+<li>异步问题，这里我想的是输入结束就自动上传编译返回结果，然后因为不好判断什么时候输入结束，所以我就设置的是停止输入0.8s后就自动上传。但是！打字慢或者停顿救不了啊，有时候输一句话会连续上传好几次，但是我需要的只有一次，就会导致很多请求发过来，正常是不会出问题的，但是一起发过来就会有很多莫名其妙的问题，完全没头绪。</li>
+<li>subprocess.run的交互问题，subprocess.run运行pdflatex有时候会遇到需要在控制台二次输入的情况，我想让这种情况直接报错，但是完全没有头绪，而且除了控制台外完全看不到回显，感觉还是不熟导致的。</li>
+</ol>
+<h2 id="HUProblem-Analyzer"><a href="#HUProblem-Analyzer" class="headerlink" title="HUProblem_Analyzer"></a><a target="_blank" rel="noopener" href="https://github.com/TnTeQAQ/HUProblem_Analyzer">HUProblem_Analyzer</a></h2><p>这个是为了过几天的数模美赛准备的题目分析器</p>
+<p><img src="/2024/01/29/%E6%9C%80%E8%BF%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/image-20240129024817577.png" alt="image-20240129024817577"></p>
+<p>如图，可用作美赛题目pdf的分析与搜索。</p>
+<p>下面是遇到的一些问题：</p>
+<ol>
+<li>pdf标题的识别，这里用的是正则匹配，但是经常会出错，原本是想让ai来分辨标题的，结果ai好像也不大会识别，目前还没有想到更好的办法。</li>
+<li>代码冗余，在一个模块里写功能函数，写着写着发现写得太多了，而且也不适合放在一个模块里，但是这时候想要重构代码就很麻烦了，感觉还是要从最开始就规划好才行，不然到后面改都不好改。</li>
+</ol>
+<p>后面两个项目的前端部分写的基本就比较少了，HUProblem_Analyzer用上了模板渲染还是比较满意的，感觉还是要学一个比较成熟的前端框架才行，但是学vue的话就感觉有点大炮打鸟了。</p>
+<p>而且特地去整前后端分离也比较麻烦，还是等具体有需求的时候再说吧。。。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/flask/">flask</a><a class="post-meta__tags" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a></div><div class="post_share"><div class="social-share" data-image="/img/megumin.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/01/05/%E6%80%9D%E7%A7%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%91%BD%E4%BB%A4/" title="思科交换机命令"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">思科交换机命令</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/megumin.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">TnTeQAQ</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/TnTeQAQ"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HUGEMINI"><span class="toc-number">1.</span> <span class="toc-text">HUGEMINI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HULaTeX"><span class="toc-number">2.</span> <span class="toc-text">HULaTeX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HUProblem-Analyzer"><span class="toc-number">3.</span> <span class="toc-text">HUProblem_Analyzer</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By TnTeQAQ</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, '']
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
